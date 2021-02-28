@@ -82,17 +82,25 @@
             <linespacing>1.1</linespacing>
             <size>56</size>
         </font>
-
-
-
-
-
-
-
+        <font>
+            <name>PVRTimeline</name>
+            <filename>WorkSans-Regular.ttf</filename>
+            <size>36</size>
+        </font>
         <font>
             <name>Singular</name>
             <filename>Montserrat-SemiBold.ttf</filename>
             <size>300</size>
+        </font>
+        <font>
+            <name>OSDMovieTitle</name>
+            <filename>Montserrat-SemiBold.ttf</filename>
+            <size>65</size>
+        </font>
+        <font>
+            <name>OSDMovieSubTitle</name>
+            <filename>Montserrat-Regular.ttf</filename>
+            <size>50</size>
         </font>
         <font>
             <name>SettingsHeader</name>
@@ -117,6 +125,11 @@
         <font>
             <name>ItemLabel</name>
             <filename>Montserrat-SemiBold.ttf</filename>
+            <size>52</size>
+        </font>
+        <font>
+            <name>ItemLabelRegular</name>
+            <filename>Montserrat-Regular.ttf</filename>
             <size>52</size>
         </font>
         <font>
