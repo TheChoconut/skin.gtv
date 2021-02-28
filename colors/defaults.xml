@@ -15,8 +15,13 @@
     <color name="MenuItemBackground">40727272</color>
     <color name="MenuItemFocus">f000aeff</color>
     <color name="InfoIconBackground">d0e0e0e0</color>
-
+    <color name="HomeBarPillFocused">40EEEEEE</color>
+    <color name="PVRGuideUnfocused">FF1A1C1D</color>
+    <color name="PVRGuideFocused">FFFAFAFA</color>
+    <color name="TextLightGray">FFD3D5D5</color>
+    <color name="TextDarkGray">FF292D2D</color>
     <color name="Black">FF000000</color>
     <color name="Invalid">FFFF6666</color>
     <color name="background">FF212121</color>
+    <color name="SettingsListBackground">FFdee2e3</color>
 </colors>

@@ -1,7 +1,7 @@
 # Kodi Media Center language file
-# Addon Name: Singular
-# Addon id: skin.singular
-# Addon Provider: roidy
+# Addon Name: GTV Modded
+# Addon id: skin.gtv.mod
+# Addon Provider: TheChoconut
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Skins\n"
@@ -323,6 +323,10 @@ msgid "Background"
 msgstr ""
 
 #empty strings from id 31103 to 31104
+
+msgctxt "#31103"
+msgid "Interface"
+msgstr ""
 
 msgctxt "#31105"
 msgid "Resets all skin settings. Caution, this will reset all menus and widgets to their default setting."
