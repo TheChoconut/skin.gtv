@@ -2,37 +2,34 @@
 <window>
     <defaultcontrol />
     <controls>
+        <!--
+        <control type="image">
+            <left>0</left>
+            <width>100%</width>
+            <bottom>0</bottom>
+            <height>500</height>
+            <texture background="true" colordiffuse="a0000000">masks/SeekbarGradient.png</texture>
+        </control>-->
 
-
-
-
-            <control type="image">
-                <left>0</left>
-                <width>100%</width>
-                <bottom>0</bottom>
-                <height>500</height>
-                <texture background="true" colordiffuse="a0000000">masks/SeekbarGradient.png</texture>
-            </control>
-
-            <control type="progress">
-                <left>300</left>
-                <bottom>200</bottom>
-                <right>300</right>
-                <height>24</height>
-                <reveal>false</reveal>
-                <texturebg colordiffuse="80ffffff" border="12">progress/back24.png</texturebg>
-                <midtexture colordiffuse="TextBright" border="12">progress/slider24.png</midtexture>
-                <info>Player.Progress</info>
-            </control>
-
-            <control type="label">
-                <left>300</left>
-                <bottom>100</bottom>
-                <height>80</height>
-                <width>200</width>
-                <alignx>center</alignx>
-                <font>WidgetTitle</font>
-                <label>$INFO[VideoPlayer.Time(MM:SS)]</label>
-            </control>
+        <control type="progress">
+            <left>300</left>
+            <bottom>200</bottom>
+            <right>300</right>
+            <height>24</height>
+            <reveal>false</reveal>
+            <texturebg colordiffuse="80ffffff" border="12">progress/back24.png</texturebg>
+            <midtexture colordiffuse="TextBright" border="12">progress/slider24.png</midtexture>
+            <info>Player.Progress</info>
+        </control>
+<!--
+        <control type="label">
+            <left>300</left>
+            <bottom>100</bottom>
+            <height>80</height>
+            <width>200</width>
+            <alignx>center</alignx>
+            <font>WidgetTitle</font>
+            <label>$INFO[VideoPlayer.Time(MM:SS)]</label>
+        </control>-->
     </controls>
 </window>

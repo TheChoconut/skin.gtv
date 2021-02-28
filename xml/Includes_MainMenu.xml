@@ -28,14 +28,19 @@
             <left>0</left>
             <top>0</top>
 
+            <control type="label">
+                <label>$INFO[Container(Container(9005).ListItem.Property(menu_id)).Position]</label>
+            </control>
+
             <control type="list" id="9005">
+                <animation effect="fade" start="100" end="0" time="100" condition="Integer.IsGreater(Container(Container(9005).ListItem.Property(menu_id)).Position,1)">Conditional</animation>
                 <!-- <include>AnimationMainMenuShift</include> -->
                 <!-- <left>632</left> -->
                 <!-- <left>532</left> -->
                 <left>751</left>
                 <top>136</top>
                 <orientation>horizontal</orientation>
-
+                <onright>9006</onright>
                 <ondown condition="Window.IsActive(home)">SetFocus($INFO[ListItem.Property(menu_id)])</ondown>
                 <ondown condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">SetFocus(9005,2)</ondown>
                 <ondown condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">500</ondown>
@@ -57,13 +62,10 @@
 
                 <focusedlayout width="334" height="160">
                     <control type="group">
-                        <width>334</width>
-                        <height>160</height>
-
                         <control type="group">
                             <visible>Control.HasFocus(9005)</visible>
                             <control type="image">
-                                <texture border="80" colordiffuse="TextBright">masks/Mask160x160r80.png</texture>
+                                <texture border="80">masks/Mask160x160r80.png</texture>
                             </control>
                             <control type="label">
                                 <top>-8</top>
@@ -76,7 +78,7 @@
                         <control type="group">
                             <visible>!Control.HasFocus(9005)</visible>
                             <control type="image">
-                                <texture border="80" colordiffuse="TextDark">masks/Mask160x160r80.png</texture>
+                                <texture border="80" colordiffuse="HomeBarPillFocused">masks/Mask160x160r80.png</texture>
                             </control>
                             <control type="label">
                                 <top>-8</top>
@@ -95,6 +97,7 @@
                         <property name="menu_id">$NUMBER[4000]</property>
                         <property name="id">foryou</property>
                         <property name="label">For you</property>
+                        <onclick>RunScript(script.globalsearch)</onclick>
                     </item>
                     <!-- Movies section -->
                     <item>
@@ -110,6 +113,13 @@
                         <property name="menu_id">$NUMBER[4200]</property>
                         <property name="id">shows</property>
                         <property name="label">Shows</property>
+                    </item>
+                    <!-- Live section -->
+                    <item>
+                        <onclick>ActivateWindow(tvguide)</onclick>
+                        <property name="menu_id">$NUMBER[4800]</property>
+                        <property name="id">live</property>
+                        <property name="label">Live</property>
                     </item>
                     <!-- Music section -->
                     <item>
@@ -129,15 +139,25 @@
                         <property name="id">apps</property>
                         <property name="label">Apps</property>
                     </item>
-                    <!-- Settings section -->
-                    <item>
-                        <property name="menu_id">$NUMBER[4600]</property>
-                        <property name="id">settings</property>
-                        <property name="label">Settings</property>
-                    </item>
                 </content>
             </control>
+            <control type="group">
+                <right>180</right>
+                <top>136</top>
 
+                <control type="group">
+                    <control type="button" id="9006">
+                        <top>30</top>
+                        <right>20</right>
+                        <width>106</width>
+                        <height>106</height>
+                        <texturenofocus>buttons/settings.png</texturenofocus>
+                        <texturefocus>buttons/settings_focus.png</texturefocus>
+                        <onleft>9005</onleft>
+                        <onclick>ActivateWindow(Settings)</onclick>
+                    </control>
+                </control>
+            </control>
         </control>
 
     </include>

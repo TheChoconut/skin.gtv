@@ -89,10 +89,19 @@
     </variable>
 
     <variable name="blurcolor">
+        <value condition="String.IsEmpty(Window(home).Property(GTV.color))">50282a2a</value>
         <value>$INFO[Window(home).Property(GTV.color),50]</value>
     </variable>
     <variable name="blurcolor1">
+        <value condition="String.IsEmpty(Window(home).Property(GTV.color))">60282a2a</value>
         <value>$INFO[Window(home).Property(GTV.color),60]</value>
+    </variable>
+    <variable name="blurcolor2">
+        <value condition="String.IsEmpty(Window(home).Property(GTV.color))">FF282a2a</value>
+        <value>$INFO[Window(home).Property(GTV.color),FF]</value>
+    </variable>
+    <variable name="blurcolor3">
+        <value>FF282a2a</value>
     </variable>
 
     <variable name="NumSeasons">
@@ -136,6 +145,8 @@
     </variable>
 
     <variable name="WidgetTitle">
+        <value condition="Control.Isvisible(4500)">$INFO[ListItem.label]</value>
+        
         <value condition="Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(ListItem.dbtype,episode)">$INFO[ListItem.season]x$VAR[EpsNumber] $INFO[ListItem.title]</value>
         <value condition="Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.Title]</value>
 
@@ -192,6 +203,7 @@
         <value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[Container.ListItem.Art(landscape)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
         <value condition="ListItem.IsFolder + String.IsEmpty(ListItem.thumb)">DefaultFolder16_9.png</value>
+        <value condition="!String.IsEmpty(Container.ListItem.EPGEventIcon)">$INFO[Container.ListItem.EPGEventIcon]</value>
         <value>$INFO[Container.ListItem.Thumb]</value>
     </variable>
 

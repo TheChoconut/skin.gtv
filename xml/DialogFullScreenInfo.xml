@@ -17,11 +17,6 @@
                 <textureslidernibfocus colordiffuse="Primary">general/White.png</textureslidernibfocus>
                 <!-- <visible>Player.SeekEnabled + !Player.ChannelPreviewActive</visible> -->
             </control>
-
-            <control type="label" id="402">
-                <left>0</left>
-                <top>0</top>
-            </control>
         </control>
     </controls>
 </window>

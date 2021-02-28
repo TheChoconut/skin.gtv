@@ -7,11 +7,11 @@
         <control type="grouplist" id="4100">
 
             <!-- Allow slide for upto 6 widget rows -->
-            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4100).Position,1)">Conditional</animation>
-            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4100).Position,2)">Conditional</animation>
-            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4100).Position,3)">Conditional</animation>
-            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4100).Position,4)">Conditional</animation>
-            <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4100).Position,5)">Conditional</animation>
+            <animation effect="slide" end="0,-800" time="200" condition="Integer.IsGreater(Container(4100).Position,1)">Conditional</animation>
+            <animation effect="slide" end="0,-800" time="200" condition="Integer.IsGreater(Container(4100).Position,2)">Conditional</animation>
+            <animation effect="slide" end="0,-800" time="200" condition="Integer.IsGreater(Container(4100).Position,3)">Conditional</animation>
+            <animation effect="slide" end="0,-800" time="200" condition="Integer.IsGreater(Container(4100).Position,4)">Conditional</animation>
+            <animation effect="slide" end="0,-800" time="200" condition="Integer.IsGreater(Container(4100).Position,5)">Conditional</animation>
 
             <left>0</left>
             <top>0</top>
@@ -22,10 +22,11 @@
             <visible>String.IsEqual(Container(9005).ListItem.Property(id),movies)</visible>
 
             <!-- <animation effect="fade" time="100">VisibleChange</animation> -->
-            <animation type="VisibleChange">
-                <effect type="fade" time="200" delay="100" />
-                <effect type="slide" start="200,0" end="0,0" time="200" />
-            </animation>
+            <animation effect="fade" time="200">VisibleChange</animation>
+            <animation effect="slide" start="-200,0" end="0,0" condition="String.IsEqual(Window(Home).Property(HomeBarAnimate),left)">Conditional</animation>
+            <animation effect="slide" start="200,0" end="0,0"  condition="String.IsEqual(Window(Home).Property(HomeBarAnimate),right)">Conditional</animation>
+            
+            <!--<animation effect="slide" end="0,0" delay="100" time="200" condition="Control.IsVisible(4100)">Conditional</animation>-->
 
             <!-- Spacer to push widget rows down -->
             <control type="group">
@@ -40,7 +41,7 @@
                 <left>0</left>
                 <right>0</right>
                 <top>0</top>
-                <height>600</height>
+                <height>800</height>
                 <include content="HomeWidgetLandscape">
                     <param name="WidgetLabel" value="Recently added movies" />
                     <param name="ParentID" value="4101" />
@@ -50,7 +51,7 @@
                     <param name="OnBack" value="SetFocus(4101,0,absolute)" />
                     <param name="OnUp" value="9005" />
                     <param name="OnDown" value="4102" />
-                    <param name="GroupHeight" value="600" />
+                    <param name="GroupHeight" value="800" />
                 </include>
             </control>
 
@@ -64,7 +65,7 @@
                 <left>0</left>
                 <right>0</right>
                 <top>0</top>
-                <height>600</height>
+                <height>800</height>
                 <include content="HomeWidgetLandscape">
                     <param name="WidgetLabel" value="$INFO[Container(4102).ListItem.Property(searchstring),Because you watched ,]" />
                     <param name="ParentID" value="4101" />
@@ -74,7 +75,7 @@
                     <param name="OnBack" value="SetFocus(4102,0,absolute)" />
                     <param name="OnUp" value="4101" />
                     <param name="OnDown" value="4103" />
-                    <param name="GroupHeight" value="600" />
+                    <param name="GroupHeight" value="800" />
                 </include>
             </control>
 
@@ -91,7 +92,7 @@
                 <left>0</left>
                 <right>0</right>
                 <top>0</top>
-                <height>600</height>
+                <height>800</height>
                 <include content="HomeWidgetLandscape">
                     <param name="WidgetLabel" value="$INFO[Container(4103).ListItem.Property(searchstring),Because you watched ,]" />
                     <param name="ParentID" value="4101" />
@@ -101,7 +102,7 @@
                     <param name="OnBack" value="SetFocus(4103,0,absolute)" />
                     <param name="OnUp" value="4102" />
                     <param name="OnDown" value="4104" />
-                    <param name="GroupHeight" value="600" />
+                    <param name="GroupHeight" value="800" />
                 </include>
             </control>
 
@@ -125,7 +126,7 @@
                     <param name="OnBack" value="SetFocus(4104,0,absolute)" />
                     <param name="OnUp" value="4103" />
                     <param name="OnDown" value="noop" />
-                    <param name="GroupHeight" value="600" />
+                    <param name="GroupHeight" value="800" />
                 </include>
             </control>
         </control>

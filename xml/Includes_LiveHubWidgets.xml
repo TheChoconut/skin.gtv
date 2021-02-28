@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+
+    <!-- Live hub widgets -->
+    <include name="LiveHubWidgets">
+        <control type="group">
+            <control type="grouplist" id="4800">
+
+                <!-- Allow slide for upto 6 widget rows -->
+
+                <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4800).Position,1)">Conditional</animation>
+                <animation effect="slide" end="0,-600" time="200" condition="Integer.IsGreater(Container(4800).Position,2)">Conditional</animation>
+
+                <left>0</left>
+                <top>0</top>
+                <height>5000</height>
+                <right>0</right>
+                <usecontrolcoords>true</usecontrolcoords>
+                <visible>String.IsEqual(Container(9005).ListItem.Property(id),live)</visible>
+
+                <!-- <animation effect="fade" time="100">VisibleChange</animation> -->
+                
+                <!-- Spacer to push widget rows down -->
+                <control type="group">
+                    <height>548</height>
+                </control>
+
+                <!-- Recently watched live tv widget row 1-->
+                <control type="group">
+                    <visible>Integer.IsGreater(Container(4801).NumItems,0) | Container(4801).IsUpdating</visible>
+                    <!--<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsGreater(Container(4801).Position,1)">Conditional</animation>
+                    -->
+                    
+                    <left>0</left>
+                    <right>0</right>
+                    <top>0</top>
+                    <height>600</height>
+                    <include content="HomeWidgetChannel">
+                        <param name="WidgetLabel" value="Live now" />
+                        <param name="ParentID" value="4801" />
+                        <param name="ListID" value="4801" />
+                        <param name="Content" value="pvr://channels/tv/*" />
+                        <param name="ContentType" value="pvr" />
+                        <param name="OnBack" value="SetFocus(4801,0,absolute)" />
+                        <param name="OnUp" value="9005" />
+                        <param name="OnDown" value="4802" />
+                        <param name="GroupHeight" value="600" />
+                        <param name="item_limit" value="10" />
+                    </include>
+                </control>
+                <control type="group">
+                    <animation effect="fade" start="100" end="20" time="200" condition="!Control.HasFocus(4802)">Conditional</animation>
+                    <height>800</height>
+                    <control type="label">
+                        <left>220</left>
+                        <top>0</top>
+                        <right>220</right>
+                        <font>WidgetLabel</font>
+                        <align>center</align>
+                        <label>To check out more channels, open TV guide.</label>
+                    </control>
+                    <control type="button" id="4802">
+                        <centerleft>50%</centerleft>
+                        <top>600</top>
+                        <right>220</right>
+                        <height>140</height>
+                        <width>600</width>
+                        <font>MenuItem</font>
+                        <aligny>center</aligny>
+                        <textcolor>black</textcolor>
+                        <onup>4801</onup>
+                        <align>center</align>
+                        <label>Open TV Guide</label>
+                        <texturefocus border="16">buttons/button_fo.png</texturefocus>
+                        <texturenofocus border="16">buttons/button_nofo.png</texturenofocus>
+                        <onclick>ActivateWindow(tvguide)</onclick>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+
+</includes>

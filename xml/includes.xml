@@ -7,17 +7,21 @@
 
     <include file="Includes_MainMenu.xml" />
     <include file="Includes_Menus.xml" />
+    <include file="Includes_PVR.xml" />
 
     <include file="Includes_WidgetLandscape.xml" />
     <include file="Includes_WidgetCircularCast.xml" />
     <include file="Includes_WidgetSquareMusic.xml" />
     <include file="Includes_WidgetMusicCategorys.xml" />
+    <include file="Includes_WidgetSquareApps.xml" />
 
     <include file="Includes_ForYouHubWidgets.xml" />
     <include file="Includes_MoviesHubWidgets.xml" />
     <include file="Includes_ShowsHubWidgets.xml" />
     <include file="Includes_MusicHubWidgets.xml" />
     <include file="Includes_SettingsHub.xml" />
+    <include file="Includes_LiveHubWidgets.xml" />
+    <include file="Includes_AddonsHubWidgets.xml" />
 
     <include file="Includes_ViewLayouts.xml" />
 
@@ -408,5 +412,17 @@
         </control>
     </include>
 
-
+    <include name="KeyboardButton">
+        <include>ButtonZoom</include>
+        <width>120</width>
+        <height>120</height>
+        <textoffsety>-12</textoffsety>
+        <texturefocus colordiffuse="TextBright" border="8">masks/Mask32x32r8.png</texturefocus>
+        <texturenofocus colordiffuse="TextDark" border="8">masks/Mask32x32r8.png</texturenofocus>
+        <align>center</align>
+        <aligny>top</aligny>
+        <font>WidgetLabel</font>
+        <focusedcolor>TextDark</focusedcolor>
+        <textcolor>TextBright</textcolor>
+    </include>
 </includes>

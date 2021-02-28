@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <includes>
-
-    <include name="LandscapeLayout">
-        <param name="ListID" />
-        <param name="Focused" default="false" />
-        <param name="ShowProgress" default="false" />
-        <param name="ShowLabel1" default="false" />
-        <param name="ShowLabel2" default="false" />
-        <param name="LabelColor" default="TextBright" />
-
+    <include name="LandscapeChannelLayout">
         <definition>
-            <control type="group">
                 <animation type="Focus" reversible="false">
                     <effect type="zoom" end="100" time="50" tween="sine" center="auto" />
                 </animation>
@@ -22,22 +13,48 @@
                     <top>0</top>
                     <width>1082</width>
                     <height>740</height>
-                    <texture background="true" colordiffuse="$VAR[blurcolor]">masks/WidgetBlurEffect.png</texture>
+                    <texture background="true" colordiffuse="$VAR[blurcolor1]">masks/WidgetBlurEffect.png</texture>
                 </control>
-                <!-- Main landscape image -->
+                <!-- EPG icon -->
                 <control type="group">
                     <animation type="Focus" reversible="false">
                         <effect type="zoom" end="112" time="75" tween="sine" center="433,370" />
                     </animation>
-                    <!-- Image -->
+                    <visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
                     <control type="image">
                         <left>42</left>
                         <top>150</top>
                         <width>782</width>
                         <height>440</height>
                         <aspectratio>scale</aspectratio>
-                        <texture background="true" diffuse="masks/Mask782x440r16.png">$VAR[LandscapeImageVar]</texture>
+                        <texture background="true" colordiffuse="$VAR[blurcolor3]">masks/MaskedGradient782x440r16.png</texture>
                     </control>
+                    <control type="image">
+                        <centerleft>433</centerleft>
+                        <centertop>50%</centertop>
+                        <width>480</width>
+                        <height>270</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                        <texture background="true" diffuse="masks/Mask782x440r16.png">$INFO[ListItem.Icon]</texture>
+                    </control>
+                </control>
+
+                <!-- Main landscape image -->
+                <control type="group">
+                    <animation type="Focus" reversible="false">
+                        <effect type="zoom" end="112" time="75" tween="sine" center="433,370" />
+                    </animation>
+
+                    <!-- Image -->
+                    <control type="image">
+                        <centerleft>433</centerleft>
+                        <centertop>50%</centertop>
+                        <width>782</width>
+                        <height>440</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture background="true" diffuse="masks/Mask782x440r16.png">$INFO[ListItem.EPGEventIcon]</texture>
+                    </control>
+
                     <!-- Selector -->
                     <control type="image">
                         <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
@@ -46,46 +63,13 @@
                         <width>790</width>
                         <height>448</height>
                         <texture background="true">masks/Selector790x448r16.png</texture>
+                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
                     </control>
-                    <!-- Unwatched background-->
-                    <control type="image">
-                        <visible>Integer.IsEqual(ListItem.PlayCount,0) + $PARAM[ShowProgress]</visible>
-                        <right>-108</right>
-                        <top>182</top>
-                        <width>64</width>
-                        <height>64</height>
-                        <texture background="true" colordiffuse="d0ffffff">overlays/Unwatched.png</texture>
-                    </control>
-                    <!-- Progress icon -->
-                    <control type="image">
-                        <visible>$PARAM[ShowProgress]</visible>
-                        <right>-108</right>
-                        <top>182</top>
-                        <width>64</width>
-                        <height>64</height>
-                        <texture background="true">$VAR[ProgressImage]</texture>
-                    </control>
-                </control>
 
-                <!-- Overide label 1 if viewing episodes -->
-                <control type="label">
-                    <visible>Container.Content(episodes)</visible>
-                    <left>42</left>
-                    <width>782</width>
-                    <top>626</top>
-                    <height>60</height>
-                    <align>left</align>
-                    <font>WidgetTitle</font>
-                    <textcolor>$PARAM[LabelColor]</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
-                    <label>$VAR[WidgetTitle]</label>
                 </control>
 
                 <!-- Label group -->
                 <control type="group">
-                    <visible>Control.HasFocus($PARAM[ListID])</visible>
-                    <animation effect="fade" time="1">VisibleChange</animation>
-
                     <control type="label">
                         <visible>$PARAM[ShowLabel1]</visible>
                         <left>42</left>
@@ -161,7 +145,241 @@
                         </control>
                     </control>
                 </control>
+        </definition>
+    </include>
 
+    <include name="LandscapeCategoryLayout">
+        <definition>
+                <animation type="Focus" reversible="false">
+                    <effect type="zoom" end="100" time="50" tween="sine" center="auto" />
+                </animation>
+                <!-- Item background blur -->
+                <control type="image">
+                    <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                    <left>-108</left>
+                    <top>0</top>
+                    <width>880</width>
+                    <height>740</height>
+                    <texture background="true" colordiffuse="$VAR[blurcolor1]">masks/WidgetBlurEffect.png</texture>
+                </control>
+
+                <control type="group">
+                    <animation type="Focus" reversible="false">
+                        <effect type="zoom" end="112" time="75" tween="sine" center="433,370" />
+                    </animation>
+                    <control type="image">
+                        <left>42</left>
+                        <top>150</top>
+                        <width>586</width>
+                        <height>440</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture background="true" colordiffuse="$VAR[blurcolor3]">masks/MaskedGradient782x440r16.png</texture>
+                    </control>
+                    <control type="image">
+                        <centerleft>330</centerleft>
+                        <centertop>50%</centertop>
+                        <width>270</width>
+                        <height>270</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                    </control>
+                </control>
+
+                <!-- Main landscape image -->
+                <control type="group">
+                    <animation type="Focus" reversible="false">
+                        <effect type="zoom" end="112" time="75" tween="sine" center="433,370" />
+                    </animation>
+                    <!-- Selector -->
+                    <control type="image">
+                        <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                        <left>38</left>
+                        <top>146</top>
+                        <width>592</width>
+                        <height>448</height>
+                        <texture background="true">masks/Selector790x448r16.png</texture>
+                        <animation effect="fade" start="100" end="20" time="1500" easing="inout" tween="cubic" pulse="true" condition="$PARAM[Focused]">Conditional</animation>
+                    </control>
+
+                </control>
+
+                <!-- Label group -->
+                <control type="group">
+                    <control type="label">
+                        <visible>$PARAM[ShowLabel1]</visible>
+                        <left>42</left>
+                        <width>782</width>
+                        <top>626</top>
+                        <height>60</height>
+                        <align>left</align>
+                        <font>WidgetTitle</font>
+                        <textcolor>$PARAM[LabelColor]</textcolor>
+                        <scrollsuffix>•</scrollsuffix>
+                        <label>$VAR[WidgetTitle]</label>
+                    </control>
+                </control>
+        </definition>
+    </include>
+
+    <include name="LandscapeLayout">
+        <param name="ListID" />
+        <param name="Focused" default="false" />
+        <param name="ShowProgress" default="false" />
+        <param name="ShowLabel1" default="false" />
+        <param name="ShowLabel2" default="false" />
+        <param name="LabelColor" default="TextBright" />
+
+        <definition>
+            <control type="group">
+                <animation type="Focus" reversible="false">
+                    <effect type="zoom" end="100" time="50" tween="sine" center="auto" />
+                </animation>
+                <!-- Item background blur -->
+                <control type="image">
+                    <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                    <left>-240</left>
+                    <top>-35</top>
+                    <width>1345</width>
+                    <height>888</height>
+                    <texture background="true" colordiffuse="$VAR[blurcolor2]">masks/blur.png</texture>
+                </control>
+                <!-- Main landscape image -->
+                <control type="group">
+                    <animation type="Focus" reversible="false">
+                        <effect type="zoom" end="112" time="75" tween="sine" center="433,370" />
+                    </animation>
+                    <!-- Image -->
+                    <control type="image">
+                        <left>42</left>
+                        <top>180</top>
+                        <width>782</width>
+                        <height>440</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture background="true" diffuse="masks/Mask782x440r16.png">$VAR[LandscapeImageVar]</texture>
+                    </control>
+                    <!-- Selector -->
+                    <control type="image">
+                        <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                        <left>38</left>
+                        <top>176</top>
+                        <width>790</width>
+                        <height>448</height>
+                        <texture background="true">masks/Selector790x448r16.png</texture>
+                    </control>
+                    <!-- Unwatched background-->
+                    <control type="image">
+                        <visible>Integer.IsEqual(ListItem.PlayCount,0) + $PARAM[ShowProgress]</visible>
+                        <right>-108</right>
+                        <top>212</top>
+                        <width>64</width>
+                        <height>64</height>
+                        <texture background="true" colordiffuse="d0ffffff">overlays/Unwatched.png</texture>
+                    </control>
+                    <!-- Progress icon -->
+                    <control type="image">
+                        <visible>$PARAM[ShowProgress]</visible>
+                        <right>-108</right>
+                        <top>212</top>
+                        <width>64</width>
+                        <height>64</height>
+                        <texture background="true">$VAR[ProgressImage]</texture>
+                    </control>
+                </control>
+
+                <!-- Overide label 1 if viewing episodes -->
+                <control type="label">
+                    <visible>Container.Content(episodes)</visible>
+                    <left>42</left>
+                    <width>782</width>
+                    <top>656</top>
+                    <height>60</height>
+                    <align>left</align>
+                    <font>WidgetTitle</font>
+                    <textcolor>$PARAM[LabelColor]</textcolor>
+                    <scrollsuffix>•</scrollsuffix>
+                    <label>$VAR[WidgetTitle]</label>
+                </control>
+
+                <!-- Label group -->
+                <control type="group">
+                    <visible>Control.HasFocus($PARAM[ListID])</visible>
+                    <animation effect="fade" time="1">VisibleChange</animation>
+
+                    <control type="label">
+                        <visible>$PARAM[ShowLabel1]</visible>
+                        <left>42</left>
+                        <width>782</width>
+                        <top>656</top>
+                        <height>60</height>
+                        <align>left</align>
+                        <font>WidgetTitle</font>
+                        <textcolor>$PARAM[LabelColor]</textcolor>
+                        <scrollsuffix>•</scrollsuffix>
+                        <label>$VAR[WidgetTitle]</label>
+                    </control>
+
+                    <control type="group">
+                        <visible>$PARAM[ShowLabel2]</visible>
+                        <control type="group">
+                            <visible>[String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode)] + !String.IsEmpty(ListItem.Duration(mins))</visible>
+                            <control type="image">
+                                <left>42</left>
+                                <top>728</top>
+                                <width>41</width>
+                                <height>41</height>
+                                <texture background="true">general/clock.png</texture>
+                            </control>
+                            <control type="label">
+                                <left>96</left>
+                                <width>782</width>
+                                <top>716</top>
+                                <height>60</height>
+                                <align>left</align>
+                                <font>WidgetRating</font>
+                                <textcolor>TextSubLabel</textcolor>
+                                <scrollsuffix>•</scrollsuffix>
+                                <label>$INFO[ListItem.Duration(mins),,mins]</label>
+                            </control>
+                        </control>
+
+                        <control type="group">
+                            <visible>String.IsEqual(ListItem.dbtype,tvshow)</visible>
+                            <control type="label">
+                                <left>42</left>
+                                <width>782</width>
+                                <top>716</top>
+                                <height>60</height>
+                                <align>left</align>
+                                <font>WidgetRating</font>
+                                <textcolor>TextSubLabel</textcolor>
+                                <scrollsuffix>•</scrollsuffix>
+                                <label>$VAR[NumSeasons]</label>
+                            </control>
+                        </control>
+
+                        <control type="group">
+                            <visible>!String.IsEmpty(ListItem.rating(themoviedb))</visible>
+                            <control type="image">
+                                <left>270</left>
+                                <top>728</top>
+                                <width>95</width>
+                                <height>41</height>
+                                <texture background="true">general/tmdb.png</texture>
+                            </control>
+                            <control type="label">
+                                <left>380</left>
+                                <width>782</width>
+                                <top>716</top>
+                                <height>60</height>
+                                <align>left</align>
+                                <font>WidgetRating</font>
+                                <textcolor>TextSubLabel</textcolor>
+                                <scrollsuffix>•</scrollsuffix>
+                                <label>$INFO[ListItem.rating(themoviedb)]</label>
+                            </control>
+                        </control>
+                    </control>
+                </control>
             </control>
         </definition>
     </include>

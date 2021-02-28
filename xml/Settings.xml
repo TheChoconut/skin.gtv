@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+    <backgroundcolor>0xFF060606</backgroundcolor>
+    <defaultcontrol>100</defaultcontrol>
     <controls>
-        
+        <control type="group">
+            <left>0</left>
+            <bottom>0</bottom>
+            <top>0</top>
+            <width>2200</width>
+
+            <control type="image">
+                <texture colordiffuse="FF0b0e0d">general/white.png</texture>
+            </control>
+            <control type="label">
+                <left>512</left>
+                <top>244</top>
+                <height>164</height>
+                <font>SettingsHeader</font>
+                <label>Settings</label>
+            </control>
+
+            <control type="label">
+                <left>512</left>
+                <top>512</top>
+                <height>78</height>
+                <font>MenuItemSmall</font>
+                <textcolor>FF5C5F5E</textcolor>
+                <label>GENERAL SETTINGS</label>
+            </control>
+            <control type="list" id="100">
+                <left>256</left>
+                <top>600</top>
+                <itemlayout height="256" width="1500">
+                    <include content="SettingsMainMenuItem">
+                        <param name="Focused" value="False" />
+                    </include>
+                </itemlayout>
+                <focusedlayout height="256" width="1500">
+                    <include content="SettingsMainMenuItem">
+                        <param name="Focused" value="True" />
+                    </include>
+                </focusedlayout>
+                <content>
+                    <item>
+						<label>$LOCALIZE[31103]</label>
+						<onclick>ActivateWindow(InterfaceSettings)</onclick>
+						<icon>icons/palette.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[24001]</label>
+						<onclick>ActivateWindow(addonbrowser)</onclick>
+						<icon>icons/settings/addons.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[138]</label>
+						<onclick>ActivateWindow(systeminfo)</onclick>
+						<icon>icons/settings/sysinfo.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[31067]</label>
+						<onclick>ActivateWindow(eventlog)</onclick>
+						<icon>icons/settings/eventlog.png</icon>
+					</item>
+                </content>
+
+            </control>
+        </control>
     </controls>
 </window>

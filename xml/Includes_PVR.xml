@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+    <include name="EpgGrid">
+        <param name="control_id" default="50" />
+        <definition>
+            <control type="epggrid" id="$PARAM[control_id]">
+				<left>100</left>
+				<orientation>vertical</orientation>
+				<timeblocks>24</timeblocks>
+				<rulerunit>6</rulerunit>
+                <progresstexture border="0,60,18,14">masks/ProgTexture.png</progresstexture>
+				<rulerlayout width="300" height="80">
+					<control type="label">
+                        <top>0</top>
+						<width>300</width>
+						<height>45</height>
+						<font>PVRTimeline</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</rulerlayout>
+				<channellayout height="220" width="300">
+					<control type="image" description="Background">
+                        <width>280</width>
+                        <height>200</height>
+                        <texture border="32" colordiffuse="PVRGuideUnfocused">masks/Mask440x440r32.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>60</left>
+                        <top>20</top>
+                        <width>160</width>
+                        <height>160</height>
+						<aspectratio>keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                    </control>
+				</channellayout>
+				<focusedchannellayout height="220" width="300">
+					<control type="image" description="Background">
+                        <width>280</width>
+                        <height>200</height>
+                        <texture border="32" colordiffuse="PVRGuideUnfocused">masks/Mask440x440r32.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>60</left>
+                        <top>20</top>
+                        <width>160</width>
+                        <height>160</height>
+						<aspectratio>keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                    </control>
+				</focusedchannellayout>
+				<itemlayout height="80" width="80">
+					<control type="image" id="2">
+						<width>58</width>
+						<height>58</height>
+						<texture border="32" colordiffuse="PVRGuideUnfocused">masks/Mask440x440r32.png</texture>
+					</control>
+					<control type="label" id="1">
+						<left>58</left>
+						<top>0</top>
+                        <width>10</width>
+						<height>58</height>
+						<aligny>center</aligny>
+						<font>font13</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="80" width="80">
+					<control type="image" id="2">
+						<width>60</width>
+						<height>60</height>
+						<texture border="32" colordiffuse="PVRGuideFocused">masks/Mask440x440r32.png</texture>
+					</control>
+					<control type="label" id="1">
+						<left>58</left>
+						<top>0</top>
+                        <width>18</width>
+						<height>58</height>
+						<aligny>center</aligny>
+						<font>font13</font>
+                        <textcolor>black</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+			</control>
+        </definition>
+    </include>
+</includes>

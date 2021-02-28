@@ -8,19 +8,8 @@
     <controls>
 
         <control type="image">
-            <left>0</left>
-            <top>0</top>
-            <width>3840</width>
-            <height>2160</height>
-            <texture background="true">general/Black.png</texture>
-        </control>
-        <control type="image">
-            <left>0</left>
-            <top>0</top>
-            <width>3840</width>
-            <height>2160</height>
-            <fadetime>400</fadetime>
-            <texture background="true" colordiffuse="$VAR[blurcolor1]">masks/bkggrad.png</texture>
+            <width>2000</width>
+            <texture colordiffuse="FF0b0e0d">general/white.png</texture>
         </control>
 
         <!-- Main view -->

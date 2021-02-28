@@ -5,8 +5,56 @@
     <onload condition="Control.IsVisible(343)">SetFocus(343)</onload>
     <onload condition="!Control.IsVisible(344)">SetFocus(344)</onload>
     <controls>
+        <control type="group">
+            <animation effect="slide" start="0,-500" time="200" tween="sine">WindowOpen</animation>
+            <animation effect="slide" end="0,-500" time="200" tween="sine">WindowClose</animation>
+            <control type="image">
+                <left>0</left>
+                <width>100%</width>
+                <top>0</top>
+                <height>500</height>
+                <texture background="true" colordiffuse="a0000000">masks/SeekbarGradientDown.png</texture>
+            </control>
+            <control type="image">
+                <left>64</left>
+                <top>64</top>
+                <width>240</width>
+                <height>240</height>
+                <aspectratio>center</aspectratio>
+                <texture background="true">$INFO[Player.Icon]</texture>
+            </control>
+            <control type="label">
+                <left>364</left>
+                <top>84</top>
+                <width>2000</width>
+                <height>90</height>
+                <font>OSDMovieTitle</font>
+                <label>$INFO[VideoPlayer.Title]</label>
+                <autoscroll>true</autoscroll>
+            </control>
+            <control type="label">
+                <left>364</left>
+                <top>154</top>
+                <width>1000</width>
+                <height>120</height>
+                <font>OSDMovieSubTitle</font>
+                <label>$INFO[VideoPlayer.ChannelName]</label>
+                <wrapmultiline>true</wrapmultiline>
+            </control>
+            <control type="label">
+                <right>128</right>
+                <top>84</top>
+                <aligny>top</aligny>
+                <align>right</align>
+                <height>500</height>
+                <font>LargeTitle</font>
+                <label>$INFO[System.Time]</label>
+            </control>
+        </control>
 
         <control type="group">
+            <animation effect="slide" start="0,500" time="200" tween="sine">WindowOpen</animation>
+            <animation effect="slide" end="0,500" time="200" tween="sine">WindowClose</animation>
             <control type="grouplist" id="339">
                 <top>2000</top>
                 <left>0</left>

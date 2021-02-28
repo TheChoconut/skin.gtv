@@ -2,21 +2,21 @@
 
 <window>
     <defaultcontrol>9005</defaultcontrol>
-
+    <backgroundcolor>0xFF0E0E0F</backgroundcolor>
     <controls>
 
-        <control type="image" id="110000">
+        <control type="label" id="110000">
             <left>-1000</left>
             <top>-1000</top>
             <width>10</width>
             <height>10</height>
-            <texture background="true">$VAR[LandscapeImageVar]</texture>
+            <label>$VAR[LandscapeImageVar]</label>
         </control>
 
         <control type="image">
-            <left>0</left>
+            <right>0</right>
             <top>0</top>
-            <width>3840</width>
+            <width>2800</width>
             <height>2160</height>
             <fadetime>400</fadetime>
             <texture background="true" colordiffuse="$VAR[blurcolor1]">masks/bkggrad.png</texture>
@@ -25,8 +25,10 @@
         <!-- Include all widget hubs -->
         <include>ForYouHubWidgets</include>
         <include>MoviesHubWidgets</include>
+        <include>LiveHubWidgets</include>
         <include>ShowsHubWidgets</include>
         <include>MusicHubWidgets</include>
+        <include>AppsHubWidgets</include>
         <include>SettingsHub</include>
 
         <!-- Include main menu -->
