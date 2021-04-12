@@ -2,7 +2,7 @@
 
 <includes>
 
-    <include name="HomeWidgetSquareApps">
+    <include name="WidgetLandscape_EmbuaryInfo">
         <param name="WidgetLabel2" default="" />
         <param name="Content2" default="" />
         <param name="GroupHeight" default="700" />
@@ -31,7 +31,6 @@
                         <font>WidgetLabel</font>
                         <textcolor>TextBright</textcolor>
                         <label>$PARAM[WidgetLabel]</label>
-                        <!-- <label>$INFO[Window(home).Property(cglocation)]</label> -->
                     </control>
                 </control>
                 <!-- Main widget list -->
@@ -53,46 +52,45 @@
                     <focusposition>0</focusposition>
                     <movement>3</movement>
 
-                    <itemlayout width="524" height="740">
+                    <itemlayout width="866" height="740">
                         <control type="group">
                             <left>182</left>
-                            <include content="SquareLayout">
+                            <include content="LandscapeLayout">
+                                <param name="ListID" value="$PARAM[ListID]" />
                                 <param name="LabelColor" value="TextDim" />
                                 <param name="Focused" value="false" />
-                                <param name="ListID" value="$PARAM[ListID]" />
                             </include>
                         </control>
                     </itemlayout>
 
-                    <focusedlayout width="524" height="740">
+                    <focusedlayout width="866" height="740">
                         <control type="group">
                             <visible>Control.HasFocus($PARAM[ListID])</visible>
                             <left>182</left>
-                            <include content="SquareLayout">
+                            <include content="LandscapeLayout">
+                                <param name="ListID" value="$PARAM[ListID]" />
                                 <param name="LabelColor" value="TextBright" />
                                 <param name="Focused" value="true" />
-                                <param name="ListID" value="$PARAM[ListID]" />
+                                <param name="ShowLabel1" value="true" />
+                                <param name="ShowLabel2" value="true" />
                             </include>
                         </control>
                         <control type="group">
                             <visible>!Control.HasFocus($PARAM[ListID])</visible>
                             <left>182</left>
-                            <include content="SquareLayout">
+                            <include content="LandscapeLayout">
+                                <param name="ListID" value="$PARAM[ListID]" />
                                 <param name="LabelColor" value="TextDim" />
                                 <param name="Focused" value="true" />
-                                <param name="ListID" value="$PARAM[ListID]" />
                             </include>
                         </control>
                     </focusedlayout>
 
-                    <content target="$PARAM[ContentType]" sortby="lastused" sortorder="descending">$PARAM[Content]</content>
+                    <!-- <content target="$PARAM[ContentType]" sortby="$PARAM[SortBy]" sortorder="$PARAM[SortOrder]">$PARAM[Content]</content> -->
+                    <!-- <content target="$PARAM[ContentType]" sortby="$PARAM[SortBy]" sortorder="$PARAM[SortOrder]">$PARAM[Content2]</content> -->
                 </control>
             </control>
         </definition>
     </include>
 
-<<<<<<< HEAD
-</includes> 
-=======
 </includes>
->>>>>>> 597e771fd7b8092a291ea74fcdf81ffb5c23765c

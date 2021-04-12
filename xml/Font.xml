@@ -16,6 +16,12 @@
             <size>68</size>
         </font>
         <font>
+            <name>OSDSettingsButtonText</name>
+            <filename>WorkSans-Medium.ttf</filename>
+            <aspect>0.95</aspect>
+            <size>38</size>
+        </font>
+        <font>
             <name>ContextTitle</name>
             <filename>WorkSans-Medium.ttf</filename>
             <aspect>0.95</aspect>
@@ -176,7 +182,7 @@
         <font>
             <name>ButtonIcon</name>
             <filename>line-awesome.ttf</filename>
-            <size>72</size>
+            <size>64</size>
         </font>
         <font>
             <name>ButtonIconSmall</name>
@@ -404,7 +410,7 @@
         <font>
             <name>ButtonIcon</name>
             <filename>line-awesome.ttf</filename>
-            <size>72</size>
+            <size>64</size>
         </font>
         <font>
             <name>ButtonIconSmall</name>

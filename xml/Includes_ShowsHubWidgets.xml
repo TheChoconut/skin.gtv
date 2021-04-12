@@ -21,6 +21,8 @@
             <itemgap>0</itemgap>
             <visible>String.IsEqual(Container(9005).ListItem.Property(id),shows)</visible>
 
+            <include>WidgetHubSlideAnimation</include>
+
             <!-- Spacer to push widget rows down -->
             <control type="group">
                 <height>548</height>

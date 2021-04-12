@@ -21,12 +21,7 @@
             <itemgap>0</itemgap>
             <visible>String.IsEqual(Container(9005).ListItem.Property(id),movies)</visible>
 
-            <!-- <animation effect="fade" time="100">VisibleChange</animation> -->
-            <animation effect="fade" time="200">VisibleChange</animation>
-            <animation effect="slide" start="-200,0" end="0,0" condition="String.IsEqual(Window(Home).Property(HomeBarAnimate),left)">Conditional</animation>
-            <animation effect="slide" start="200,0" end="0,0"  condition="String.IsEqual(Window(Home).Property(HomeBarAnimate),right)">Conditional</animation>
-            
-            <!--<animation effect="slide" end="0,0" delay="100" time="200" condition="Control.IsVisible(4100)">Conditional</animation>-->
+            <include>WidgetHubSlideAnimation</include>
 
             <!-- Spacer to push widget rows down -->
             <control type="group">

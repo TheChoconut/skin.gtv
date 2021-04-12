@@ -6,15 +6,7 @@
     <include name="ForYouHubWidgets">
         <control type="group">
             <visible>String.IsEqual(Container(9005).ListItem.Property(id),foryou)</visible>
-            <control type="image">
-                <top>0</top>
-                <left>0</left>
-                <width>3840</width>
-                <height>2160</height>
-                <fadetime>200</fadetime>
-                <aspectratio scalediffuse="true">scale</aspectratio>
-                <texture background="true" colordiffuse="b0ffffff">$VAR[BackgroundImageForYou]</texture>
-            </control>
+            <include>BackgroundForYouHub</include>
 
             <!-- Include main info -->
             <include content="MainInfoView">

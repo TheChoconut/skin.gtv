@@ -135,6 +135,7 @@
                     </item>
                     <!-- Addons section -->
                     <item>
+                        <onclick>ActivateWindow(addonbrowser,addons://all/)</onclick>
                         <property name="menu_id">$NUMBER[4500]</property>
                         <property name="id">apps</property>
                         <property name="label">Apps</property>

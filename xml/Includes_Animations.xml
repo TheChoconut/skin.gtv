@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+    <include name="WidgetHubSlideAnimation">
+        <animation type="VisibleChange">
+            <effect type="fade" time="200" delay="100" />
+            <effect type="slide" start="200,0" end="0,0" time="200" />
+        </animation>
+    </include>
+    
     <include name="ButtonZoom">
         <animation type="Focus" reversible="false">
             <effect type="zoom" end="106" time="50" tween="sine" center="auto" />
