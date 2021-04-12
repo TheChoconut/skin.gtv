@@ -124,48 +124,63 @@
             <control type="group">
                 <width>1500</width>
                 <height>256</height>
-                <animation effect="zoom" center="750,128" start="90" end="100" condition="$PARAM[Focused]">Conditional</animation>
-                <control type="image">
-                    <left>128</left>
-                    <visible>$PARAM[Focused]</visible>
-                    <texture colordiffuse="SettingsListBackground" background="true" border="16">masks/Mask782x440r16.png</texture>
-                </control>
-
-                <control type="image">
-                    <left>256</left>
-                    <centertop>128</centertop>
-                    <width>164</width>
-                    <height>164</height>
-                    <texture background="true" colordiffuse="FF1c1f1e">buttons/circle256.png</texture>
-                </control>
-                <control type="image">
-                    <left>297</left>
-                    <centertop>128</centertop>
-                    <width>82</width>
-                    <height>82</height>
-                    <texture background="true" colordiffuse="FFa9acab">$INFO[ListItem.Icon]</texture>
-                </control>
-                <control type="label">
+                <animation effect="zoom" reversible="false" center="780,128" time="200" start="95" end="100">Focus</animation>
+                <control type="group">
                     <visible>!$PARAM[Focused]</visible>
-                    <left>512</left>
-                    <centertop>128</centertop>
-                    <height>40</height>
-                    <font>ItemLabelRegular</font>
-                    <textcolor>TextLightGray</textcolor>
-                    <label>$INFO[ListItem.Label]</label>
+                    <control type="image">
+                        <left>256</left>
+                        <centertop>128</centertop>
+                        <width>164</width>
+                        <height>164</height>
+                        <texture background="true" colordiffuse="FF1c1f1e">buttons/circle256.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>297</left>
+                        <centertop>128</centertop>
+                        <width>82</width>
+                        <height>82</height>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                    </control>
+                    <control type="label">
+                        <left>476</left>
+                        <centertop>128</centertop>
+                        <height>40</height>
+                        <font>ItemLabelRegular</font>
+                        <textcolor>TextLightGray</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
                 </control>
-                <control type="label">
+                <control type="group">
                     <visible>$PARAM[Focused]</visible>
-                    <left>512</left>
-                    <centertop>128</centertop>
-                    <height>40</height>
-                    <font>ItemLabelRegular</font>
-                    <textcolor>TextDarkGray</textcolor>
-                    <label>$INFO[ListItem.Label]</label>
+                    <control type="image">
+                        <left>128</left>
+                        <texture colordiffuse="SettingsListBackground" background="true" border="16">masks/Mask782x440r16.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>220</left>
+                        <centertop>128</centertop>
+                        <width>164</width>
+                        <height>164</height>
+                        <texture background="true" colordiffuse="FF1c1f1e">buttons/circle256.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>261</left>
+                        <centertop>128</centertop>
+                        <width>82</width>
+                        <height>82</height>
+                        <texture background="true" colordiffuse="red">$INFO[ListItem.Icon]</texture>
+                    </control>
+                    <control type="label">
+                        <left>440</left>
+                        <centertop>128</centertop>
+                        <height>40</height>
+                        <font>ItemLabelRegular</font>
+                        <textcolor>TextDarkGray</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
                 </control>
             </control>
         </definition>
-
     </include>
 
 </includes>

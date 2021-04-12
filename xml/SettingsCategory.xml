@@ -8,10 +8,10 @@
     <controls>
 
         <control type="image">
-            <width>2000</width>
+            <width>2200</width>
             <texture colordiffuse="FF0b0e0d">general/white.png</texture>
+            <animation effect="slide" start="0,0" end="-2200,0" time="200" condition="ControlGroup(5).HasFocus(0)">Conditional</animation>
         </control>
-
         <!-- Main view -->
         <control type="group">
             <left>0</left>
@@ -31,9 +31,9 @@
             </animation>
 
             <control type="grouplist" id="3">
-                <left>100</left>
+                <left>256</left>
                 <top>0</top>
-                <width>700</width>
+                <width>1500</width>
                 <height min="60" max="2160">auto</height>
                 <usecontrolcoords>true</usecontrolcoords>
                 <itemgap>8</itemgap>
@@ -41,16 +41,25 @@
                 <ondown>20</ondown>
                 <onup>noop</onup>
                 <onright>5</onright>
+                <animation effect="slide" start="0,0" end="-2200,0" time="200" condition="ControlGroup(5).HasFocus(0)">Conditional</animation>
             </control>
 
             <control type="button" id="10">
-                <include>SettingsCategoryMenuButtonTemplate</include>
+                <width>1500</width>
+                <height>256</height>
+                <textoffsetx>200</textoffsetx>
+                <aligny>center</aligny>
+                <animation effect="zoom" reversible="false" center="780,128" time="200" start="95" end="100">Focus</animation>
+                <font>ItemLabelRegular</font>
+                <textcolor>TextLightGray</textcolor>
+                <focusedcolor>TextDarkGray</focusedcolor>
+                <texturefocus colordiffuse="SettingsListBackground" background="true" border="16">masks/Mask782x440r16.png</texturefocus>
             </control>
 
 
             <control type="grouplist" id="5">
-
-                <left>1000</left>
+                <animation effect="slide" start="0,0" end="-2200,0" time="200" condition="ControlGroup(5).HasFocus(0)">Conditional</animation>
+                <left>2500</left>
                 <top>0</top>
                 <width>2000</width>
                 <height min="164" max="2160">auto</height>
